@@ -2,6 +2,7 @@ int x = 0;
 int suma;
 float operacion;
 string texto = "10";
+float resta;
 
 operacion = 10 - 5 + (6 * 10 + (1 / 2));
 

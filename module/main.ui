@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>980</width>
+    <width>940</width>
     <height>596</height>
    </rect>
   </property>
@@ -48,7 +48,7 @@
      <rect>
       <x>10</x>
       <y>480</y>
-      <width>961</width>
+      <width>921</width>
       <height>81</height>
      </rect>
     </property>
@@ -85,11 +85,80 @@
      <string>Editor</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>500</x>
       <y>10</y>
+      <width>431</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Analisis Lexico</string>
+     </attribute>
+     <widget class="QTableWidget" name="output_table_result">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>421</width>
+        <height>361</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Analisis Sintáctico</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="output_sintax_analyzer">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>421</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="cursorWidth">
+       <number>1</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Analisis Semántico</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="output_semantic_analyzer">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>421</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="cursorWidth">
+       <number>1</number>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>ENSAM</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>430</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -98,23 +167,13 @@
      <string>Analisis Lexico</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="output_table_result">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>30</y>
-      <width>471</width>
-      <height>371</height>
-     </rect>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>980</width>
+     <width>940</width>
      <height>33</height>
     </rect>
    </property>

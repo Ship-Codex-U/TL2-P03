@@ -1,5 +1,6 @@
 import sys
 import os
+import json
 
 from module import *
 
@@ -46,24 +47,30 @@ class MainWindow(QMainWindow):
 
         # Analisis sintactico
         tree, parseErrors = self.compiler.parser()
-
-        print("Arbol de sintaxis:")
-        print(tree)
-
-
+        self.ui.output_sintax_analyzer.clear()
+        
         if parseErrors:
             self.showOutputMessage(f'{str(1)}) {parseErrors}', QColor(230,25,25))
         else:
+            json_tree = json.dumps(tree, indent=4)
+
+            self.ui.output_sintax_analyzer.setPlainText(json_tree)
+            self.ui.output_sintax_analyzer.setReadOnly(True)
             self.showOutputMessage("Syntax analysis completed with no errors", QColor("green"))
         
         # Analisis semantico
 
         semanticErrors = self.compiler.semanticAnalyser()
+        self.ui.output_semantic_analyzer.clear()
+        self.ui.output_semantic_analyzer.setReadOnly(True)
 
         if semanticErrors:
+            self.ui.output_semantic_analyzer.setPlainText("NO OK")
+
             for i, error in enumerate(semanticErrors):
                 self.showOutputMessage(f'{str(i + 1)}) {error}', QColor(230,25,25))
         else:
+            self.ui.output_semantic_analyzer.setPlainText("OK")
             self.showOutputMessage("Semantic analysis completed with no errors", QColor("green"))
 
     def showOutputMessage(self, text, color):
