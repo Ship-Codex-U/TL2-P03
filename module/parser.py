@@ -226,7 +226,7 @@ class Parser:
 
                     if self.current_token() and self.current_token()[1] == 'Llave cerrada':
                         self.advance()
-                        else_body = None
+                        else_body = []
                         if self.current_token() and self.current_token()[1] == 'Palabra reservada else':
                             self.advance()
                             if self.current_token() and self.current_token()[1] == 'Llave abierta':

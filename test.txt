@@ -213,3 +213,41 @@ Arbol de sintaxis:
         ]
     }
 ]
+
+[{
+        'type': 'assignment',
+        'data_type': ('int', 'Palabra reservada int', 1),
+        'identifier': ('x', 'Identificador', 1),
+        'expression': {
+            'type': 'binary_operation',
+            'operator': ('+', 'Operador suma', 1),
+            'left': {
+                'type': 'binary_operation',
+                'operator': ('+', 'Operador suma', 1),
+                'left': {
+                    'type': 'factor',
+                    'value': ('10', 'Entero', 1)
+                },
+                'right': {
+                    'type': 'factor',
+                    'value': ('20', 'Entero', 1)
+                }
+            },
+            'right': {
+                'type': 'group',
+                'expression': {
+                    'type': 'binary_operation',
+                    'operator': ('/', 'Operador división', 1),
+                    'left': {
+                        'type': 'factor',
+                        'value': ('10', 'Entero', 1)
+                    },
+                    'right': {
+                        'type': 'factor',
+                        'value': ('5', 'Entero', 1)
+                    }
+                }
+            }
+        }
+    }
+]

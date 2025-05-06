@@ -21,6 +21,7 @@ class MainWindow(QMainWindow):
 
         code = self.ui.input_code.toPlainText()
 
+        # Analisis lexico
         tokensFound, lexicalErrors = self.compiler.lexicalAnalyser(code)
 
         if lexicalErrors:
@@ -42,6 +43,8 @@ class MainWindow(QMainWindow):
             self.ui.output_table_result.setItem(pos, 0, lexemaWidget)
             self.ui.output_table_result.setItem(pos, 1, tokenTypeWidget)
 
+
+        # Analisis sintactico
         tree, parseErrors = self.compiler.parser()
 
         print("Arbol de sintaxis:")
@@ -52,6 +55,16 @@ class MainWindow(QMainWindow):
             self.showOutputMessage(f'{str(1)}) {parseErrors}', QColor(230,25,25))
         else:
             self.showOutputMessage("Syntax analysis completed with no errors", QColor("green"))
+        
+        # Analisis semantico
+
+        semanticErrors = self.compiler.semanticAnalyser()
+
+        if semanticErrors:
+            for i, error in enumerate(semanticErrors):
+                self.showOutputMessage(f'{str(i + 1)}) {error}', QColor(230,25,25))
+        else:
+            self.showOutputMessage("Semantic analysis completed with no errors", QColor("green"))
 
     def showOutputMessage(self, text, color):
         cursor = self.ui.output_messages.textCursor()
